@@ -70,3 +70,20 @@
   padding-bottom: 20px;
   padding-top: 10px;
 }
+
+ul {
+  list-style: none;
+}
+
+nav {
+  position: fixed; 
+  top: 0; 
+  right: 0; 
+}
+
+.home-link 
+{
+  border:1px dotted white;
+  background:#0ab90a;
+  width:75px;
+}

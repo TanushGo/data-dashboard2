@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Menu = ({ data }) => {
     console.log(data)
@@ -12,9 +13,14 @@ const Menu = ({ data }) => {
             <tbody>
                 {Object.entries(data).map((brewery) => 
                     <tr key={brewery[1].id}>
-                        <td key={brewery[1]["name"]}>{brewery[1]["name"]}</td>
+                        <td key={brewery[1]["name"]}><Link
+                            to={`/breweryDetails/${brewery[1].id}`}
+                            key={brewery[1].id}
+                            >{brewery[1]["name"]} </Link>
+                        </td>
+                        
                         <td key={brewery[1]["city"]}>{brewery[1].city}</td>
-                        <td key = {brewery[1].state}>{brewery[1].state}</td>
+                        <td key = {brewery[1].id}>{brewery[1].state}</td>
                         <td key = {brewery[1].brewery_type}>{brewery[1].brewery_type}</td>
                     </tr>
                 )

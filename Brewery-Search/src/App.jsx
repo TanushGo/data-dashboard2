@@ -1,4 +1,5 @@
 import { useState, useEffect} from 'react'
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid,Legend, Tooltip, ResponsiveContainer } from 'recharts';
 import './App.css'
 import Menu from "./components/Menu";
 
@@ -146,6 +147,22 @@ function App() {
           : null
     }
     </div>
+    <ResponsiveContainer width="100%" height={400}>
+        <ScatterChart
+          margin={{
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 40,
+          }}
+        >
+          <CartesianGrid />
+          <XAxis type="number" dataKey="longitude" name="longitude" unit="degrees" domain={[-180, 180]} />
+          <YAxis type="number" dataKey="latitude" name="latitude" unit="degrees" domain={[-180, 180]}/>
+          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+          <Scatter name="breweries" data={list} fill="#8884d8" />
+        </ScatterChart>
+      </ResponsiveContainer>
     </div>
 
   )
